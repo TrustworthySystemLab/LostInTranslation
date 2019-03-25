@@ -1,0 +1,55 @@
+
+benchmark-7/instcombine-27.o:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000088  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .ARM.exidx    00000008  00000000  00000000  000000bc  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  2 .comment      0000002e  00000000  00000000  000000c4  2**0
+                  CONTENTS, READONLY
+  3 .note.GNU-stack 00000000  00000000  00000000  000000f2  2**0
+                  CONTENTS, READONLY
+  4 .ARM.attributes 0000003c  00000000  00000000  000000f2  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+00000000 <astex_codelet__13>:
+   0:	e92d48f0 	push	{r4, r5, r6, r7, fp, lr}
+   4:	e28db010 	add	fp, sp, #16
+   8:	e1a04002 	mov	r4, r2
+   c:	e1a05001 	mov	r5, r1
+  10:	e1a06000 	mov	r6, r0
+  14:	e3a07000 	mov	r7, #0
+  18:	e357003f 	cmp	r7, #63	; 0x3f
+  1c:	da000004 	ble	34 <astex_codelet__13+0x34>
+  20:	ea000017 	b	84 <astex_codelet__13+0x84>
+  24:	e0c600b2 	strh	r0, [r6], #2
+  28:	e2877001 	add	r7, r7, #1
+  2c:	e357003f 	cmp	r7, #63	; 0x3f
+  30:	ca000013 	bgt	84 <astex_codelet__13+0x84>
+  34:	e7951107 	ldr	r1, [r5, r7, lsl #2]
+  38:	e7940107 	ldr	r0, [r4, r7, lsl #2]
+  3c:	e1a020c1 	asr	r2, r1, #1
+  40:	e3500000 	cmp	r0, #0
+  44:	ba000006 	blt	64 <astex_codelet__13+0x64>
+  48:	e0802002 	add	r2, r0, r2
+  4c:	e3a00000 	mov	r0, #0
+  50:	e1520001 	cmp	r2, r1
+  54:	bafffff2 	blt	24 <astex_codelet__13+0x24>
+  58:	e1a00002 	mov	r0, r2
+  5c:	ebfffffe 	bl	0 <__aeabi_idiv>
+			5c: R_ARM_CALL	__aeabi_idiv
+  60:	eaffffef 	b	24 <astex_codelet__13+0x24>
+  64:	e0422000 	sub	r2, r2, r0
+  68:	e3a00000 	mov	r0, #0
+  6c:	e1520001 	cmp	r2, r1
+  70:	ba000001 	blt	7c <astex_codelet__13+0x7c>
+  74:	e1a00002 	mov	r0, r2
+  78:	ebfffffe 	bl	0 <__aeabi_idiv>
+			78: R_ARM_CALL	__aeabi_idiv
+  7c:	e2600000 	rsb	r0, r0, #0
+  80:	eaffffe7 	b	24 <astex_codelet__13+0x24>
+  84:	e8bd88f0 	pop	{r4, r5, r6, r7, fp, pc}

@@ -1,5 +1,5 @@
 
-milepost-codelet-mibench-consumer-lame-src-fft-codelet-2-1/optIRFiles/64fft.codelet__2.o:     file format elf32-littlearm
+benchmark-10/standard-O3.o:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn

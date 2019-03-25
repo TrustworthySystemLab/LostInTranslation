@@ -1,0 +1,202 @@
+
+benchmark-18/lcssa-141.o:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000002dc  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .ARM.exidx    00000008  00000000  00000000  00000310  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  2 .comment      0000002e  00000000  00000000  00000318  2**0
+                  CONTENTS, READONLY
+  3 .note.GNU-stack 00000000  00000000  00000000  00000346  2**0
+                  CONTENTS, READONLY
+  4 .ARM.attributes 0000003c  00000000  00000000  00000346  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+00000000 <astex_codelet__5>:
+   0:	e92d48f0 	push	{r4, r5, r6, r7, fp, lr}
+   4:	e28db010 	add	fp, sp, #16
+   8:	e3510003 	cmp	r1, #3
+   c:	0a00002b 	beq	c0 <astex_codelet__5+0xc0>
+  10:	e3510001 	cmp	r1, #1
+  14:	0a00006e 	beq	1d4 <astex_codelet__5+0x1d4>
+  18:	e3510000 	cmp	r1, #0
+  1c:	1a00006b 	bne	1d0 <astex_codelet__5+0x1d0>
+  20:	e3a01000 	mov	r1, #0
+  24:	e3a0c000 	mov	ip, #0
+  28:	e1a03000 	mov	r3, r0
+  2c:	e1a04002 	mov	r4, r2
+  30:	e7b46001 	ldr	r6, [r4, r1]!
+  34:	e28cc004 	add	ip, ip, #4
+  38:	e7b3e001 	ldr	lr, [r3, r1]!
+  3c:	e2811010 	add	r1, r1, #16
+  40:	e2866902 	add	r6, r6, #32768	; 0x8000
+  44:	e35c0024 	cmp	ip, #36	; 0x24
+  48:	e28e5b02 	add	r5, lr, #2048	; 0x800
+  4c:	e1a06846 	asr	r6, r6, #16
+  50:	e1a05645 	asr	r5, r5, #12
+  54:	e0060596 	mul	r6, r6, r5
+  58:	e9934020 	ldmib	r3, {r5, lr}
+  5c:	e593700c 	ldr	r7, [r3, #12]
+  60:	e2855b02 	add	r5, r5, #2048	; 0x800
+  64:	e5836000 	str	r6, [r3]
+  68:	e5946004 	ldr	r6, [r4, #4]
+  6c:	e1a05645 	asr	r5, r5, #12
+  70:	e2877b02 	add	r7, r7, #2048	; 0x800
+  74:	e2866902 	add	r6, r6, #32768	; 0x8000
+  78:	e1a07647 	asr	r7, r7, #12
+  7c:	e1a06846 	asr	r6, r6, #16
+  80:	e0050596 	mul	r5, r6, r5
+  84:	e28e6b02 	add	r6, lr, #2048	; 0x800
+  88:	e1a06646 	asr	r6, r6, #12
+  8c:	e5835004 	str	r5, [r3, #4]
+  90:	e5945008 	ldr	r5, [r4, #8]
+  94:	e2855902 	add	r5, r5, #32768	; 0x8000
+  98:	e1a05845 	asr	r5, r5, #16
+  9c:	e0060695 	mul	r6, r5, r6
+  a0:	e5836008 	str	r6, [r3, #8]
+  a4:	e594600c 	ldr	r6, [r4, #12]
+  a8:	e2866902 	add	r6, r6, #32768	; 0x8000
+  ac:	e1a06846 	asr	r6, r6, #16
+  b0:	e0070796 	mul	r7, r6, r7
+  b4:	e583700c 	str	r7, [r3, #12]
+  b8:	3affffda 	bcc	28 <astex_codelet__5+0x28>
+  bc:	ea000043 	b	1d0 <astex_codelet__5+0x1d0>
+  c0:	f2c00050 	vmov.i32	q8, #0	; 0x00000000
+  c4:	e3a01000 	mov	r1, #0
+  c8:	e3a0c014 	mov	ip, #20
+  cc:	e1a04000 	mov	r4, r0
+  d0:	e5907018 	ldr	r7, [r0, #24]
+  d4:	e2822048 	add	r2, r2, #72	; 0x48
+  d8:	e590601c 	ldr	r6, [r0, #28]
+  dc:	e5905020 	ldr	r5, [r0, #32]
+  e0:	e2877b02 	add	r7, r7, #2048	; 0x800
+  e4:	e590e024 	ldr	lr, [r0, #36]	; 0x24
+  e8:	e2866b02 	add	r6, r6, #2048	; 0x800
+  ec:	e5801010 	str	r1, [r0, #16]
+  f0:	e1a07647 	asr	r7, r7, #12
+  f4:	f4440a8c 	vst1.32	{d16-d17}, [r4], ip
+  f8:	e1a06646 	asr	r6, r6, #12
+  fc:	e5841000 	str	r1, [r4]
+ 100:	e5934000 	ldr	r4, [r3]
+ 104:	e2844902 	add	r4, r4, #32768	; 0x8000
+ 108:	e1a04844 	asr	r4, r4, #16
+ 10c:	e0070794 	mul	r7, r4, r7
+ 110:	e5807018 	str	r7, [r0, #24]
+ 114:	e5937004 	ldr	r7, [r3, #4]
+ 118:	e2877902 	add	r7, r7, #32768	; 0x8000
+ 11c:	e1a07847 	asr	r7, r7, #16
+ 120:	e0070697 	mul	r7, r7, r6
+ 124:	e2856b02 	add	r6, r5, #2048	; 0x800
+ 128:	e1a06646 	asr	r6, r6, #12
+ 12c:	e580701c 	str	r7, [r0, #28]
+ 130:	e5937008 	ldr	r7, [r3, #8]
+ 134:	e2877902 	add	r7, r7, #32768	; 0x8000
+ 138:	e1a07847 	asr	r7, r7, #16
+ 13c:	e0070697 	mul	r7, r7, r6
+ 140:	e28e6b02 	add	r6, lr, #2048	; 0x800
+ 144:	e1a06646 	asr	r6, r6, #12
+ 148:	e5807020 	str	r7, [r0, #32]
+ 14c:	e593700c 	ldr	r7, [r3, #12]
+ 150:	e2877902 	add	r7, r7, #32768	; 0x8000
+ 154:	e1a07847 	asr	r7, r7, #16
+ 158:	e0070697 	mul	r7, r7, r6
+ 15c:	e5906028 	ldr	r6, [r0, #40]	; 0x28
+ 160:	e2866b02 	add	r6, r6, #2048	; 0x800
+ 164:	e5807024 	str	r7, [r0, #36]	; 0x24
+ 168:	e1a06646 	asr	r6, r6, #12
+ 16c:	e5937010 	ldr	r7, [r3, #16]
+ 170:	e2877902 	add	r7, r7, #32768	; 0x8000
+ 174:	e1a07847 	asr	r7, r7, #16
+ 178:	e0070697 	mul	r7, r7, r6
+ 17c:	e5807028 	str	r7, [r0, #40]	; 0x28
+ 180:	e590702c 	ldr	r7, [r0, #44]	; 0x2c
+ 184:	e5933014 	ldr	r3, [r3, #20]
+ 188:	e2877b02 	add	r7, r7, #2048	; 0x800
+ 18c:	e2833902 	add	r3, r3, #32768	; 0x8000
+ 190:	e1a07647 	asr	r7, r7, #12
+ 194:	e1a03843 	asr	r3, r3, #16
+ 198:	e0030793 	mul	r3, r3, r7
+ 19c:	e580302c 	str	r3, [r0, #44]	; 0x2c
+ 1a0:	e2800048 	add	r0, r0, #72	; 0x48
+ 1a4:	e7103101 	ldr	r3, [r0, -r1, lsl #2]
+ 1a8:	e7127101 	ldr	r7, [r2, -r1, lsl #2]
+ 1ac:	e2833b02 	add	r3, r3, #2048	; 0x800
+ 1b0:	e2877902 	add	r7, r7, #32768	; 0x8000
+ 1b4:	e1a03643 	asr	r3, r3, #12
+ 1b8:	e1a07847 	asr	r7, r7, #16
+ 1bc:	e0030397 	mul	r3, r7, r3
+ 1c0:	e7003101 	str	r3, [r0, -r1, lsl #2]
+ 1c4:	e2411001 	sub	r1, r1, #1
+ 1c8:	e3710012 	cmn	r1, #18
+ 1cc:	1afffff4 	bne	1a4 <astex_codelet__5+0x1a4>
+ 1d0:	e8bd88f0 	pop	{r4, r5, r6, r7, fp, pc}
+ 1d4:	e3a01000 	mov	r1, #0
+ 1d8:	e7107101 	ldr	r7, [r0, -r1, lsl #2]
+ 1dc:	e7126101 	ldr	r6, [r2, -r1, lsl #2]
+ 1e0:	e2877b02 	add	r7, r7, #2048	; 0x800
+ 1e4:	e2866902 	add	r6, r6, #32768	; 0x8000
+ 1e8:	e1a07647 	asr	r7, r7, #12
+ 1ec:	e1a06846 	asr	r6, r6, #16
+ 1f0:	e0070796 	mul	r7, r6, r7
+ 1f4:	e7007101 	str	r7, [r0, -r1, lsl #2]
+ 1f8:	e2411001 	sub	r1, r1, #1
+ 1fc:	e3710012 	cmn	r1, #18
+ 200:	1afffff4 	bne	1d8 <astex_codelet__5+0x1d8>
+ 204:	e2807060 	add	r7, r0, #96	; 0x60
+ 208:	f2c00050 	vmov.i32	q8, #0	; 0x00000000
+ 20c:	e8970086 	ldm	r7, {r1, r2, r7}
+ 210:	e5935018 	ldr	r5, [r3, #24]
+ 214:	e2811b02 	add	r1, r1, #2048	; 0x800
+ 218:	e590606c 	ldr	r6, [r0, #108]	; 0x6c
+ 21c:	e2822b02 	add	r2, r2, #2048	; 0x800
+ 220:	e2855902 	add	r5, r5, #32768	; 0x8000
+ 224:	e1a01641 	asr	r1, r1, #12
+ 228:	e1a02642 	asr	r2, r2, #12
+ 22c:	e1a05845 	asr	r5, r5, #16
+ 230:	e0010195 	mul	r1, r5, r1
+ 234:	e5801060 	str	r1, [r0, #96]	; 0x60
+ 238:	e593101c 	ldr	r1, [r3, #28]
+ 23c:	e2811902 	add	r1, r1, #32768	; 0x8000
+ 240:	e1a01841 	asr	r1, r1, #16
+ 244:	e0010291 	mul	r1, r1, r2
+ 248:	e2872b02 	add	r2, r7, #2048	; 0x800
+ 24c:	e1a02642 	asr	r2, r2, #12
+ 250:	e5801064 	str	r1, [r0, #100]	; 0x64
+ 254:	e5931020 	ldr	r1, [r3, #32]
+ 258:	e2811902 	add	r1, r1, #32768	; 0x8000
+ 25c:	e1a01841 	asr	r1, r1, #16
+ 260:	e0010291 	mul	r1, r1, r2
+ 264:	e2862b02 	add	r2, r6, #2048	; 0x800
+ 268:	e1a02642 	asr	r2, r2, #12
+ 26c:	e5801068 	str	r1, [r0, #104]	; 0x68
+ 270:	e5931024 	ldr	r1, [r3, #36]	; 0x24
+ 274:	e2811902 	add	r1, r1, #32768	; 0x8000
+ 278:	e1a01841 	asr	r1, r1, #16
+ 27c:	e0010291 	mul	r1, r1, r2
+ 280:	e5902070 	ldr	r2, [r0, #112]	; 0x70
+ 284:	e2822b02 	add	r2, r2, #2048	; 0x800
+ 288:	e580106c 	str	r1, [r0, #108]	; 0x6c
+ 28c:	e1a02642 	asr	r2, r2, #12
+ 290:	e5931028 	ldr	r1, [r3, #40]	; 0x28
+ 294:	e2811902 	add	r1, r1, #32768	; 0x8000
+ 298:	e1a01841 	asr	r1, r1, #16
+ 29c:	e0010291 	mul	r1, r1, r2
+ 2a0:	e2802078 	add	r2, r0, #120	; 0x78
+ 2a4:	e5801070 	str	r1, [r0, #112]	; 0x70
+ 2a8:	e5901074 	ldr	r1, [r0, #116]	; 0x74
+ 2ac:	e593302c 	ldr	r3, [r3, #44]	; 0x2c
+ 2b0:	e2811b02 	add	r1, r1, #2048	; 0x800
+ 2b4:	f4420a8f 	vst1.32	{d16-d17}, [r2]
+ 2b8:	e2833902 	add	r3, r3, #32768	; 0x8000
+ 2bc:	e3a02000 	mov	r2, #0
+ 2c0:	e1a01641 	asr	r1, r1, #12
+ 2c4:	e5802088 	str	r2, [r0, #136]	; 0x88
+ 2c8:	e1a03843 	asr	r3, r3, #16
+ 2cc:	e580208c 	str	r2, [r0, #140]	; 0x8c
+ 2d0:	e0010193 	mul	r1, r3, r1
+ 2d4:	e5801074 	str	r1, [r0, #116]	; 0x74
+ 2d8:	e8bd88f0 	pop	{r4, r5, r6, r7, fp, pc}

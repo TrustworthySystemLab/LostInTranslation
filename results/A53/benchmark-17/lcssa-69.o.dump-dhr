@@ -1,0 +1,41 @@
+
+benchmark-17/lcssa-69.o:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000058  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .ARM.exidx    00000008  00000000  00000000  0000008c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  2 .comment      0000002e  00000000  00000000  00000094  2**0
+                  CONTENTS, READONLY
+  3 .note.GNU-stack 00000000  00000000  00000000  000000c2  2**0
+                  CONTENTS, READONLY
+  4 .ARM.attributes 0000003c  00000000  00000000  000000c2  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+00000000 <astex_codelet__5>:
+   0:	e92d4800 	push	{fp, lr}
+   4:	e1a0b00d 	mov	fp, sp
+   8:	e3a0c000 	mov	ip, #0
+   c:	e3a0e000 	mov	lr, #0
+  10:	e35e0d09 	cmp	lr, #576	; 0x240
+  14:	ba000004 	blt	2c <astex_codelet__5+0x2c>
+  18:	ea000008 	b	40 <astex_codelet__5+0x40>
+  1c:	e2800008 	add	r0, r0, #8
+  20:	e28ee001 	add	lr, lr, #1
+  24:	e35e0d09 	cmp	lr, #576	; 0x240
+  28:	aa000004 	bge	40 <astex_codelet__5+0x40>
+  2c:	edd00b00 	vldr	d16, [r0]
+  30:	eef40bc0 	vcmpe.f64	d16, d0
+  34:	eef1fa10 	vmrs	APSR_nzcv, fpscr
+  38:	dafffff7 	ble	1c <astex_codelet__5+0x1c>
+  3c:	e3a0c001 	mov	ip, #1
+  40:	e30806a0 	movw	r0, #34464	; 0x86a0
+  44:	e581e000 	str	lr, [r1]
+  48:	e3400001 	movt	r0, #1
+  4c:	e5820000 	str	r0, [r2]
+  50:	e583c000 	str	ip, [r3]
+  54:	e8bd8800 	pop	{fp, pc}

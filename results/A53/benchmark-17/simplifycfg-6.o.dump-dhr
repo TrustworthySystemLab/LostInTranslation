@@ -1,0 +1,58 @@
+
+benchmark-17/simplifycfg-6.o:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000009c  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .ARM.exidx    00000008  00000000  00000000  000000d0  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  2 .comment      0000002e  00000000  00000000  000000d8  2**0
+                  CONTENTS, READONLY
+  3 .note.GNU-stack 00000000  00000000  00000000  00000106  2**0
+                  CONTENTS, READONLY
+  4 .ARM.attributes 0000003c  00000000  00000000  00000106  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+00000000 <astex_codelet__5>:
+   0:	e24dd028 	sub	sp, sp, #40	; 0x28
+   4:	e58d0024 	str	r0, [sp, #36]	; 0x24
+   8:	e3a00000 	mov	r0, #0
+   c:	e58d1020 	str	r1, [sp, #32]
+  10:	ed8d0b06 	vstr	d0, [sp, #24]
+  14:	e58d2014 	str	r2, [sp, #20]
+  18:	e58d3010 	str	r3, [sp, #16]
+  1c:	e58d000c 	str	r0, [sp, #12]
+  20:	ea000001 	b	2c <astex_codelet__5+0x2c>
+  24:	e59d0004 	ldr	r0, [sp, #4]
+  28:	e2800001 	add	r0, r0, #1
+  2c:	e58d0004 	str	r0, [sp, #4]
+  30:	e59d0004 	ldr	r0, [sp, #4]
+  34:	e3500d09 	cmp	r0, #576	; 0x240
+  38:	aa00000c 	bge	70 <astex_codelet__5+0x70>
+  3c:	e59d0004 	ldr	r0, [sp, #4]
+  40:	e59d1024 	ldr	r1, [sp, #36]	; 0x24
+  44:	eddd0b06 	vldr	d16, [sp, #24]
+  48:	e0810180 	add	r0, r1, r0, lsl #3
+  4c:	edd01b00 	vldr	d17, [r0]
+  50:	eef41be0 	vcmpe.f64	d17, d16
+  54:	eef1fa10 	vmrs	APSR_nzcv, fpscr
+  58:	dafffff1 	ble	24 <astex_codelet__5+0x24>
+  5c:	e30806a0 	movw	r0, #34464	; 0x86a0
+  60:	e3400001 	movt	r0, #1
+  64:	e58d0008 	str	r0, [sp, #8]
+  68:	e3a00001 	mov	r0, #1
+  6c:	e58d000c 	str	r0, [sp, #12]
+  70:	e59d0020 	ldr	r0, [sp, #32]
+  74:	e59d1004 	ldr	r1, [sp, #4]
+  78:	e5801000 	str	r1, [r0]
+  7c:	e59d0014 	ldr	r0, [sp, #20]
+  80:	e59d1008 	ldr	r1, [sp, #8]
+  84:	e5801000 	str	r1, [r0]
+  88:	e59d0010 	ldr	r0, [sp, #16]
+  8c:	e59d100c 	ldr	r1, [sp, #12]
+  90:	e5801000 	str	r1, [r0]
+  94:	e28dd028 	add	sp, sp, #40	; 0x28
+  98:	e12fff1e 	bx	lr

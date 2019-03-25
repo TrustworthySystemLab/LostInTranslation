@@ -1,0 +1,127 @@
+
+benchmark-9/lcssa-141.o:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000001b0  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .ARM.exidx    00000008  00000000  00000000  000001e4  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  2 .comment      0000002e  00000000  00000000  000001ec  2**0
+                  CONTENTS, READONLY
+  3 .note.GNU-stack 00000000  00000000  00000000  0000021a  2**0
+                  CONTENTS, READONLY
+  4 .ARM.attributes 0000003c  00000000  00000000  0000021a  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+00000000 <astex_codelet__2>:
+   0:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	e28db01c 	add	fp, sp, #28
+   8:	e24dd018 	sub	sp, sp, #24
+   c:	e3a09000 	mov	r9, #0
+  10:	e58d0000 	str	r0, [sp]
+  14:	e59d0000 	ldr	r0, [sp]
+  18:	e7b0e109 	ldr	lr, [r0, r9, lsl #2]!
+  1c:	e2899001 	add	r9, r9, #1
+  20:	e58de004 	str	lr, [sp, #4]
+  24:	e3590008 	cmp	r9, #8
+  28:	e5901020 	ldr	r1, [r0, #32]
+  2c:	e58d1010 	str	r1, [sp, #16]
+  30:	e5908060 	ldr	r8, [r0, #96]	; 0x60
+  34:	e5907040 	ldr	r7, [r0, #64]	; 0x40
+  38:	e58d8008 	str	r8, [sp, #8]
+  3c:	e5903080 	ldr	r3, [r0, #128]	; 0x80
+  40:	e58d300c 	str	r3, [sp, #12]
+  44:	e59020c0 	ldr	r2, [r0, #192]	; 0xc0
+  48:	e58d2014 	str	r2, [sp, #20]
+  4c:	e59050a0 	ldr	r5, [r0, #160]	; 0xa0
+  50:	e0822001 	add	r2, r2, r1
+  54:	e59060e0 	ldr	r6, [r0, #224]	; 0xe0
+  58:	e085c007 	add	ip, r5, r7
+  5c:	e086100e 	add	r1, r6, lr
+  60:	e083e008 	add	lr, r3, r8
+  64:	e08c4002 	add	r4, ip, r2
+  68:	e08e8001 	add	r8, lr, r1
+  6c:	e084a008 	add	sl, r4, r8
+  70:	e042200c 	sub	r2, r2, ip
+  74:	e28a3002 	add	r3, sl, #2
+  78:	e041100e 	sub	r1, r1, lr
+  7c:	e302a5a1 	movw	sl, #9633	; 0x25a1
+  80:	e1a03143 	asr	r3, r3, #2
+  84:	e5803000 	str	r3, [r0]
+  88:	e2643002 	rsb	r3, r4, #2
+  8c:	e0833008 	add	r3, r3, r8
+  90:	e3014151 	movw	r4, #4433	; 0x1151
+  94:	e1a03143 	asr	r3, r3, #2
+  98:	e5803080 	str	r3, [r0, #128]	; 0x80
+  9c:	e0813002 	add	r3, r1, r2
+  a0:	e0030493 	mul	r3, r3, r4
+  a4:	e301487e 	movw	r4, #6270	; 0x187e
+  a8:	e0213491 	mla	r1, r1, r4, r3
+  ac:	e2811901 	add	r1, r1, #16384	; 0x4000
+  b0:	e1a017c1 	asr	r1, r1, #15
+  b4:	e5801040 	str	r1, [r0, #64]	; 0x40
+  b8:	e30c113b 	movw	r1, #49467	; 0xc13b
+  bc:	e34f1fff 	movt	r1, #65535	; 0xffff
+  c0:	e2811fe9 	add	r1, r1, #932	; 0x3a4
+  c4:	e0213192 	mla	r1, r2, r1, r3
+  c8:	e0472005 	sub	r2, r7, r5
+  cc:	e30f7384 	movw	r7, #62340	; 0xf384
+  d0:	e34f7fff 	movt	r7, #65535	; 0xffff
+  d4:	e2811901 	add	r1, r1, #16384	; 0x4000
+  d8:	e1a017c1 	asr	r1, r1, #15
+  dc:	e58010c0 	str	r1, [r0, #192]	; 0xc0
+  e0:	e59d1004 	ldr	r1, [sp, #4]
+  e4:	e59d5010 	ldr	r5, [sp, #16]
+  e8:	e0411006 	sub	r1, r1, r6
+  ec:	e59d6014 	ldr	r6, [sp, #20]
+  f0:	e59d4008 	ldr	r4, [sp, #8]
+  f4:	e0823001 	add	r3, r2, r1
+  f8:	e0456006 	sub	r6, r5, r6
+  fc:	e59d500c 	ldr	r5, [sp, #12]
+ 100:	e0070793 	mul	r7, r3, r7
+ 104:	e0445005 	sub	r5, r4, r5
+ 108:	e0854006 	add	r4, r5, r6
+ 10c:	e084c003 	add	ip, r4, r3
+ 110:	e30e3333 	movw	r3, #58163	; 0xe333
+ 114:	e34f3fff 	movt	r3, #65535	; 0xffff
+ 118:	e02e7a9c 	mla	lr, ip, sl, r7
+ 11c:	e0857001 	add	r7, r5, r1
+ 120:	e0070397 	mul	r7, r7, r3
+ 124:	e303300b 	movw	r3, #12299	; 0x300b
+ 128:	e0287391 	mla	r8, r1, r3, r7
+ 12c:	e30a3dfd 	movw	r3, #44541	; 0xadfd
+ 130:	e0821006 	add	r1, r2, r6
+ 134:	e34f3fff 	movt	r3, #65535	; 0xffff
+ 138:	e0010391 	mul	r1, r1, r3
+ 13c:	e3063254 	movw	r3, #25172	; 0x6254
+ 140:	e0261396 	mla	r6, r6, r3, r1
+ 144:	e30431b3 	movw	r3, #16819	; 0x41b3
+ 148:	e0211392 	mla	r1, r2, r3, r1
+ 14c:	e30c213b 	movw	r2, #49467	; 0xc13b
+ 150:	e34f2fff 	movt	r2, #65535	; 0xffff
+ 154:	e0020294 	mul	r2, r4, r2
+ 158:	e300398e 	movw	r3, #2446	; 0x98e
+ 15c:	e0237395 	mla	r3, r5, r3, r7
+ 160:	e081100e 	add	r1, r1, lr
+ 164:	e0222a9c 	mla	r2, ip, sl, r2
+ 168:	e2811901 	add	r1, r1, #16384	; 0x4000
+ 16c:	e1a017c1 	asr	r1, r1, #15
+ 170:	e0833002 	add	r3, r3, r2
+ 174:	e2833901 	add	r3, r3, #16384	; 0x4000
+ 178:	e1a037c3 	asr	r3, r3, #15
+ 17c:	e58030e0 	str	r3, [r0, #224]	; 0xe0
+ 180:	e58010a0 	str	r1, [r0, #160]	; 0xa0
+ 184:	e0861002 	add	r1, r6, r2
+ 188:	e2811901 	add	r1, r1, #16384	; 0x4000
+ 18c:	e1a017c1 	asr	r1, r1, #15
+ 190:	e5801060 	str	r1, [r0, #96]	; 0x60
+ 194:	e088100e 	add	r1, r8, lr
+ 198:	e2811901 	add	r1, r1, #16384	; 0x4000
+ 19c:	e1a017c1 	asr	r1, r1, #15
+ 1a0:	e5801020 	str	r1, [r0, #32]
+ 1a4:	1affff9a 	bne	14 <astex_codelet__2+0x14>
+ 1a8:	e24bd01c 	sub	sp, fp, #28
+ 1ac:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}

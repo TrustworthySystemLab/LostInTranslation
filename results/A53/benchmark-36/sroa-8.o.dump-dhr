@@ -1,0 +1,41 @@
+
+benchmark-36/sroa-8.o:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000058  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .ARM.exidx    00000008  00000000  00000000  0000008c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  2 .comment      0000002e  00000000  00000000  00000094  2**0
+                  CONTENTS, READONLY
+  3 .note.GNU-stack 00000000  00000000  00000000  000000c2  2**0
+                  CONTENTS, READONLY
+  4 .ARM.attributes 0000003c  00000000  00000000  000000c2  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+00000000 <astex_codelet__4>:
+   0:	e92d4830 	push	{r4, r5, fp, lr}
+   4:	e28db008 	add	fp, sp, #8
+   8:	e59bc008 	ldr	ip, [fp, #8]
+   c:	e30fefff 	movw	lr, #65535	; 0xffff
+  10:	e1d140b0 	ldrh	r4, [r1]
+  14:	e1d050b0 	ldrh	r5, [r0]
+  18:	e1550004 	cmp	r5, r4
+  1c:	ba000009 	blt	48 <astex_codelet__4+0x48>
+  20:	e1550004 	cmp	r5, r4
+  24:	ca000006 	bgt	44 <astex_codelet__4+0x44>
+  28:	e2422001 	sub	r2, r2, #1
+  2c:	e2411002 	sub	r1, r1, #2
+  30:	e2400002 	sub	r0, r0, #2
+  34:	e112000e 	tst	r2, lr
+  38:	1afffff4 	bne	10 <astex_codelet__4+0x10>
+  3c:	e3a0e000 	mov	lr, #0
+  40:	ea000000 	b	48 <astex_codelet__4+0x48>
+  44:	e3a0e001 	mov	lr, #1
+  48:	e3a00001 	mov	r0, #1
+  4c:	e1c3e0b0 	strh	lr, [r3]
+  50:	e58c0000 	str	r0, [ip]
+  54:	e8bd8830 	pop	{r4, r5, fp, pc}

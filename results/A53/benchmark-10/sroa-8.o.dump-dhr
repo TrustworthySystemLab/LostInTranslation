@@ -1,0 +1,239 @@
+
+benchmark-10/sroa-8.o:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000370  00000000  00000000  00000038  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .ARM.exidx    00000008  00000000  00000000  000003a8  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  2 .comment      0000002e  00000000  00000000  000003b0  2**0
+                  CONTENTS, READONLY
+  3 .note.GNU-stack 00000000  00000000  00000000  000003de  2**0
+                  CONTENTS, READONLY
+  4 .ARM.attributes 0000003c  00000000  00000000  000003de  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+00000000 <astex_codelet__2>:
+   0:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	e28db01c 	add	fp, sp, #28
+   8:	e24dd004 	sub	sp, sp, #4
+   c:	ed2d8b06 	vpush	{d8-d10}
+  10:	e24dd050 	sub	sp, sp, #80	; 0x50
+  14:	eeb70a00 	vmov.f32	s0, #112	; 0x3f800000  1.0
+  18:	eddf0bd2 	vldr	d16, [pc, #840]	; 368 <astex_codelet__2+0x368>
+  1c:	e58d001c 	str	r0, [sp, #28]
+  20:	e59b0008 	ldr	r0, [fp, #8]
+  24:	e58d1004 	str	r1, [sp, #4]
+  28:	e58d0024 	str	r0, [sp, #36]	; 0x24
+  2c:	e50b3040 	str	r3, [fp, #-64]	; 0xffffffc0
+  30:	e6bfe072 	sxth	lr, r2
+  34:	e59d401c 	ldr	r4, [sp, #28]
+  38:	e1a0108e 	lsl	r1, lr, #1
+  3c:	e1a000ce 	asr	r0, lr, #1
+  40:	e6bf8071 	sxth	r8, r1
+  44:	e6b82072 	sxtah	r2, r8, r2
+  48:	e1a07100 	lsl	r7, r0, #2
+  4c:	e58d0020 	str	r0, [sp, #32]
+  50:	e6bfc072 	sxth	ip, r2
+  54:	e1a00088 	lsl	r0, r8, #1
+  58:	e58d000c 	str	r0, [sp, #12]
+  5c:	e6bf0070 	sxth	r0, r0
+  60:	e087910c 	add	r9, r7, ip, lsl #2
+  64:	e087a10e 	add	sl, r7, lr, lsl #2
+  68:	e0876108 	add	r6, r7, r8, lsl #2
+  6c:	e1a0510c 	lsl	r5, ip, #2
+  70:	e58d0008 	str	r0, [sp, #8]
+  74:	e1a00100 	lsl	r0, r0, #2
+  78:	e1a0110e 	lsl	r1, lr, #2
+  7c:	e1a02108 	lsl	r2, r8, #2
+  80:	e58d502c 	str	r5, [sp, #44]	; 0x2c
+  84:	e50b003c 	str	r0, [fp, #-60]	; 0xffffffc4
+  88:	e58d1034 	str	r1, [sp, #52]	; 0x34
+  8c:	e58d2030 	str	r2, [sp, #48]	; 0x30
+  90:	e59d1034 	ldr	r1, [sp, #52]	; 0x34
+  94:	e59d0030 	ldr	r0, [sp, #48]	; 0x30
+  98:	e0841001 	add	r1, r4, r1
+  9c:	ed941a00 	vldr	s2, [r4]
+  a0:	e0842000 	add	r2, r4, r0
+  a4:	e0840005 	add	r0, r4, r5
+  a8:	ed914a00 	vldr	s8, [r1]
+  ac:	e0845007 	add	r5, r4, r7
+  b0:	ed902a00 	vldr	s4, [r0]
+  b4:	ed923a00 	vldr	s6, [r2]
+  b8:	ee316a04 	vadd.f32	s12, s2, s8
+  bc:	ee311a44 	vsub.f32	s2, s2, s8
+  c0:	ee335a02 	vadd.f32	s10, s6, s4
+  c4:	ee332a42 	vsub.f32	s4, s6, s4
+  c8:	ee363a45 	vsub.f32	s6, s12, s10
+  cc:	ee364a05 	vadd.f32	s8, s12, s10
+  d0:	ee315a42 	vsub.f32	s10, s2, s4
+  d4:	ee311a02 	vadd.f32	s2, s2, s4
+  d8:	ed823a00 	vstr	s6, [r2]
+  dc:	e084200a 	add	r2, r4, sl
+  e0:	ed844a00 	vstr	s8, [r4]
+  e4:	ed805a00 	vstr	s10, [r0]
+  e8:	e0840006 	add	r0, r4, r6
+  ec:	ed811a00 	vstr	s2, [r1]
+  f0:	e0841009 	add	r1, r4, r9
+  f4:	ed901a00 	vldr	s2, [r0]
+  f8:	ed912a00 	vldr	s4, [r1]
+  fc:	eef71ac1 	vcvt.f64.f32	d17, s2
+ 100:	eef72ac2 	vcvt.f64.f32	d18, s4
+ 104:	ee611ba0 	vmul.f64	d17, d17, d16
+ 108:	ee622ba0 	vmul.f64	d18, d18, d16
+ 10c:	ed921a00 	vldr	s2, [r2]
+ 110:	ed952a00 	vldr	s4, [r5]
+ 114:	eeb74be1 	vcvt.f32.f64	s8, d17
+ 118:	ee323a01 	vadd.f32	s6, s4, s2
+ 11c:	ee321a41 	vsub.f32	s2, s4, s2
+ 120:	eeb72be2 	vcvt.f32.f64	s4, d18
+ 124:	ee335a44 	vsub.f32	s10, s6, s8
+ 128:	ee333a04 	vadd.f32	s6, s6, s8
+ 12c:	ee314a42 	vsub.f32	s8, s2, s4
+ 130:	ee311a02 	vadd.f32	s2, s2, s4
+ 134:	ed805a00 	vstr	s10, [r0]
+ 138:	ed853a00 	vstr	s6, [r5]
+ 13c:	e59d502c 	ldr	r5, [sp, #44]	; 0x2c
+ 140:	ed814a00 	vstr	s8, [r1]
+ 144:	e59d1034 	ldr	r1, [sp, #52]	; 0x34
+ 148:	ed821a00 	vstr	s2, [r2]
+ 14c:	e51b003c 	ldr	r0, [fp, #-60]	; 0xffffffc4
+ 150:	e59d2030 	ldr	r2, [sp, #48]	; 0x30
+ 154:	e0844000 	add	r4, r4, r0
+ 158:	e1540003 	cmp	r4, r3
+ 15c:	3affffcb 	bcc	90 <astex_codelet__2+0x90>
+ 160:	e59d0024 	ldr	r0, [sp, #36]	; 0x24
+ 164:	e3a07001 	mov	r7, #1
+ 168:	ed901a00 	vldr	s2, [r0]
+ 16c:	ed902a01 	vldr	s4, [r0, #4]
+ 170:	e0810108 	add	r0, r1, r8, lsl #2
+ 174:	e58d0018 	str	r0, [sp, #24]
+ 178:	e081010c 	add	r0, r1, ip, lsl #2
+ 17c:	e58d0014 	str	r0, [sp, #20]
+ 180:	e1a0018e 	lsl	r0, lr, #3
+ 184:	e58d0010 	str	r0, [sp, #16]
+ 188:	ea00000d 	b	1c4 <astex_codelet__2+0x1c4>
+ 18c:	e59d0024 	ldr	r0, [sp, #36]	; 0x24
+ 190:	e59d7028 	ldr	r7, [sp, #40]	; 0x28
+ 194:	e51b3040 	ldr	r3, [fp, #-64]	; 0xffffffc0
+ 198:	ed903a00 	vldr	s6, [r0]
+ 19c:	e2877001 	add	r7, r7, #1
+ 1a0:	ed904a01 	vldr	s8, [r0, #4]
+ 1a4:	ee225a03 	vmul.f32	s10, s4, s6
+ 1a8:	e59d502c 	ldr	r5, [sp, #44]	; 0x2c
+ 1ac:	ee213a03 	vmul.f32	s6, s2, s6
+ 1b0:	e59d2030 	ldr	r2, [sp, #48]	; 0x30
+ 1b4:	ee015a04 	vmla.f32	s10, s2, s8
+ 1b8:	ee023a44 	vmls.f32	s6, s4, s8
+ 1bc:	eeb02a45 	vmov.f32	s4, s10
+ 1c0:	eeb01a43 	vmov.f32	s2, s6
+ 1c4:	e59d1020 	ldr	r1, [sp, #32]
+ 1c8:	e6bf0077 	sxth	r0, r7
+ 1cc:	e1500001 	cmp	r0, r1
+ 1d0:	aa000058 	bge	338 <astex_codelet__2+0x338>
+ 1d4:	ee324a02 	vadd.f32	s8, s4, s4
+ 1d8:	e59d1010 	ldr	r1, [sp, #16]
+ 1dc:	eeb03a40 	vmov.f32	s6, s0
+ 1e0:	e59d401c 	ldr	r4, [sp, #28]
+ 1e4:	e0411100 	sub	r1, r1, r0, lsl #2
+ 1e8:	e58d1044 	str	r1, [sp, #68]	; 0x44
+ 1ec:	e59d1014 	ldr	r1, [sp, #20]
+ 1f0:	e0858100 	add	r8, r5, r0, lsl #2
+ 1f4:	e082c100 	add	ip, r2, r0, lsl #2
+ 1f8:	e1a05100 	lsl	r5, r0, #2
+ 1fc:	e0411100 	sub	r1, r1, r0, lsl #2
+ 200:	e58d1040 	str	r1, [sp, #64]	; 0x40
+ 204:	e59d1018 	ldr	r1, [sp, #24]
+ 208:	ee043a42 	vmls.f32	s6, s8, s4
+ 20c:	e58d7028 	str	r7, [sp, #40]	; 0x28
+ 210:	ee244a01 	vmul.f32	s8, s8, s2
+ 214:	e0411100 	sub	r1, r1, r0, lsl #2
+ 218:	e58d103c 	str	r1, [sp, #60]	; 0x3c
+ 21c:	e59d1034 	ldr	r1, [sp, #52]	; 0x34
+ 220:	e081a100 	add	sl, r1, r0, lsl #2
+ 224:	e0417100 	sub	r7, r1, r0, lsl #2
+ 228:	e58d7038 	str	r7, [sp, #56]	; 0x38
+ 22c:	e59d0038 	ldr	r0, [sp, #56]	; 0x38
+ 230:	e084e008 	add	lr, r4, r8
+ 234:	e084900c 	add	r9, r4, ip
+ 238:	e084100a 	add	r1, r4, sl
+ 23c:	e0847000 	add	r7, r4, r0
+ 240:	e59d003c 	ldr	r0, [sp, #60]	; 0x3c
+ 244:	ed9e5a00 	vldr	s10, [lr]
+ 248:	e0846005 	add	r6, r4, r5
+ 24c:	e0843000 	add	r3, r4, r0
+ 250:	e59d0044 	ldr	r0, [sp, #68]	; 0x44
+ 254:	ee246a05 	vmul.f32	s12, s8, s10
+ 258:	edd13a00 	vldr	s7, [r1]
+ 25c:	e0842000 	add	r2, r4, r0
+ 260:	e59d0040 	ldr	r0, [sp, #64]	; 0x40
+ 264:	edd31a00 	vldr	s3, [r3]
+ 268:	e0840000 	add	r0, r4, r0
+ 26c:	edd94a00 	vldr	s9, [r9]
+ 270:	edd67a00 	vldr	s15, [r6]
+ 274:	ed907a00 	vldr	s14, [r0]
+ 278:	ed97aa00 	vldr	s20, [r7]
+ 27c:	ee640a07 	vmul.f32	s1, s8, s14
+ 280:	ee036a47 	vmls.f32	s12, s6, s14
+ 284:	ed927a00 	vldr	s14, [r2]
+ 288:	ee642a07 	vmul.f32	s5, s8, s14
+ 28c:	ee430a05 	vmla.f32	s1, s6, s10
+ 290:	ee432a23 	vmla.f32	s5, s6, s7
+ 294:	ee315ac6 	vsub.f32	s10, s3, s12
+ 298:	ee643a23 	vmul.f32	s7, s8, s7
+ 29c:	ee745aa0 	vadd.f32	s11, s9, s1
+ 2a0:	ee740ae0 	vsub.f32	s1, s9, s1
+ 2a4:	ee316a86 	vadd.f32	s12, s3, s12
+ 2a8:	ee378aa2 	vadd.f32	s16, s15, s5
+ 2ac:	ee433a47 	vmls.f32	s7, s6, s14
+ 2b0:	ee626a05 	vmul.f32	s13, s4, s10
+ 2b4:	ee227a25 	vmul.f32	s14, s4, s11
+ 2b8:	ee611a20 	vmul.f32	s3, s2, s1
+ 2bc:	ee614a06 	vmul.f32	s9, s2, s12
+ 2c0:	ee416a25 	vmla.f32	s13, s2, s11
+ 2c4:	ee017a45 	vmls.f32	s14, s2, s10
+ 2c8:	ee421a06 	vmla.f32	s3, s4, s12
+ 2cc:	ee424a60 	vmls.f32	s9, s4, s1
+ 2d0:	ee7a5a63 	vsub.f32	s11, s20, s7
+ 2d4:	ee3a5a23 	vadd.f32	s10, s20, s7
+ 2d8:	ee376ae2 	vsub.f32	s12, s15, s5
+ 2dc:	ee389a66 	vsub.f32	s18, s16, s13
+ 2e0:	ee780a26 	vadd.f32	s1, s16, s13
+ 2e4:	ee752ac7 	vsub.f32	s5, s11, s14
+ 2e8:	ee753a61 	vsub.f32	s7, s10, s3
+ 2ec:	ee355a21 	vadd.f32	s10, s10, s3
+ 2f0:	ee761a64 	vsub.f32	s3, s12, s9
+ 2f4:	ed899a00 	vstr	s18, [r9]
+ 2f8:	ee357a87 	vadd.f32	s14, s11, s14
+ 2fc:	edc60a00 	vstr	s1, [r6]
+ 300:	ee366a24 	vadd.f32	s12, s12, s9
+ 304:	edc02a00 	vstr	s5, [r0]
+ 308:	ed827a00 	vstr	s14, [r2]
+ 30c:	edc33a00 	vstr	s7, [r3]
+ 310:	ed875a00 	vstr	s10, [r7]
+ 314:	edce1a00 	vstr	s3, [lr]
+ 318:	ed816a00 	vstr	s12, [r1]
+ 31c:	e51b003c 	ldr	r0, [fp, #-60]	; 0xffffffc4
+ 320:	e51b1040 	ldr	r1, [fp, #-64]	; 0xffffffc0
+ 324:	e0844000 	add	r4, r4, r0
+ 328:	e0840005 	add	r0, r4, r5
+ 32c:	e1500001 	cmp	r0, r1
+ 330:	3affffbd 	bcc	22c <astex_codelet__2+0x22c>
+ 334:	eaffff94 	b	18c <astex_codelet__2+0x18c>
+ 338:	e59d0024 	ldr	r0, [sp, #36]	; 0x24
+ 33c:	e2800008 	add	r0, r0, #8
+ 340:	e58d0024 	str	r0, [sp, #36]	; 0x24
+ 344:	e99d0003 	ldmib	sp, {r0, r1}
+ 348:	e59d200c 	ldr	r2, [sp, #12]
+ 34c:	e1510000 	cmp	r1, r0
+ 350:	baffff36 	blt	30 <astex_codelet__2+0x30>
+ 354:	e24bd038 	sub	sp, fp, #56	; 0x38
+ 358:	ecbd8b06 	vpop	{d8-d10}
+ 35c:	e28dd004 	add	sp, sp, #4
+ 360:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 364:	e320f000 	nop	{0}
+ 368:	667f3bcd 	.word	0x667f3bcd
+ 36c:	3ff6a09e 	.word	0x3ff6a09e

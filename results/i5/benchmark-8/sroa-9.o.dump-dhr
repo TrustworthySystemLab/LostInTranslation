@@ -1,0 +1,163 @@
+
+benchmark-8/sroa-9.o:     file format elf64-x86-64
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .text         00000138  0000000000000000  0000000000000000  00000040  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .comment      000000b2  0000000000000000  0000000000000000  00000178  2**0
+                  CONTENTS, READONLY
+  2 .note.GNU-stack 00000000  0000000000000000  0000000000000000  0000022a  2**0
+                  CONTENTS, READONLY
+  3 .eh_frame     00000038  0000000000000000  0000000000000000  00000230  2**3
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+
+Disassembly of section .text:
+
+0000000000000000 <astex_codelet__9>:
+   0:	41 57                	push   %r15
+   2:	41 56                	push   %r14
+   4:	53                   	push   %rbx
+   5:	eb 7a                	jmp    81 <astex_codelet__9+0x81>
+   7:	90                   	nop
+   8:	90                   	nop
+   9:	90                   	nop
+   a:	90                   	nop
+   b:	90                   	nop
+   c:	90                   	nop
+   d:	90                   	nop
+   e:	90                   	nop
+   f:	90                   	nop
+  10:	49 63 c7             	movslq %r15d,%rax
+  13:	4c 8b 1c c7          	mov    (%rdi,%rax,8),%r11
+  17:	49 63 da             	movslq %r10d,%rbx
+  1a:	4c 01 1c df          	add    %r11,(%rdi,%rbx,8)
+  1e:	48 c7 04 c7 00 00 00 	movq   $0x0,(%rdi,%rax,8)
+  25:	00 
+  26:	83 04 9e 01          	addl   $0x1,(%rsi,%rbx,4)
+  2a:	49 63 da             	movslq %r10d,%rbx
+  2d:	4c 63 14 9a          	movslq (%rdx,%rbx,4),%r10
+  31:	4d 85 d2             	test   %r10,%r10
+  34:	78 1b                	js     51 <astex_codelet__9+0x51>
+  36:	90                   	nop
+  37:	90                   	nop
+  38:	90                   	nop
+  39:	90                   	nop
+  3a:	90                   	nop
+  3b:	90                   	nop
+  3c:	90                   	nop
+  3d:	90                   	nop
+  3e:	90                   	nop
+  3f:	90                   	nop
+  40:	42 83 04 96 01       	addl   $0x1,(%rsi,%r10,4)
+  45:	49 63 da             	movslq %r10d,%rbx
+  48:	4c 63 14 9a          	movslq (%rdx,%rbx,4),%r10
+  4c:	4d 85 d2             	test   %r10,%r10
+  4f:	79 ef                	jns    40 <astex_codelet__9+0x40>
+  51:	44 89 3c 9a          	mov    %r15d,(%rdx,%rbx,4)
+  55:	83 04 86 01          	addl   $0x1,(%rsi,%rax,4)
+  59:	49 63 c7             	movslq %r15d,%rax
+  5c:	4c 63 3c 82          	movslq (%rdx,%rax,4),%r15
+  60:	4d 85 ff             	test   %r15,%r15
+  63:	78 1c                	js     81 <astex_codelet__9+0x81>
+  65:	90                   	nop
+  66:	90                   	nop
+  67:	90                   	nop
+  68:	90                   	nop
+  69:	90                   	nop
+  6a:	90                   	nop
+  6b:	90                   	nop
+  6c:	90                   	nop
+  6d:	90                   	nop
+  6e:	90                   	nop
+  6f:	90                   	nop
+  70:	42 83 04 be 01       	addl   $0x1,(%rsi,%r15,4)
+  75:	49 63 c7             	movslq %r15d,%rax
+  78:	4c 63 3c 82          	movslq (%rdx,%rax,4),%r15
+  7c:	4d 85 ff             	test   %r15,%r15
+  7f:	79 ef                	jns    70 <astex_codelet__9+0x70>
+  81:	41 ba ff ff ff ff    	mov    $0xffffffff,%r10d
+  87:	31 c0                	xor    %eax,%eax
+  89:	41 bb 00 ca 9a 3b    	mov    $0x3b9aca00,%r11d
+  8f:	3d 00 01 00 00       	cmp    $0x100,%eax
+  94:	7e 15                	jle    ab <astex_codelet__9+0xab>
+  96:	eb 38                	jmp    d0 <astex_codelet__9+0xd0>
+  98:	90                   	nop
+  99:	90                   	nop
+  9a:	90                   	nop
+  9b:	90                   	nop
+  9c:	90                   	nop
+  9d:	90                   	nop
+  9e:	90                   	nop
+  9f:	90                   	nop
+  a0:	48 83 c0 01          	add    $0x1,%rax
+  a4:	3d 00 01 00 00       	cmp    $0x100,%eax
+  a9:	7f 25                	jg     d0 <astex_codelet__9+0xd0>
+  ab:	48 8b 1c c7          	mov    (%rdi,%rax,8),%rbx
+  af:	48 85 db             	test   %rbx,%rbx
+  b2:	74 ec                	je     a0 <astex_codelet__9+0xa0>
+  b4:	4c 39 db             	cmp    %r11,%rbx
+  b7:	7f e7                	jg     a0 <astex_codelet__9+0xa0>
+  b9:	49 89 db             	mov    %rbx,%r11
+  bc:	41 89 c2             	mov    %eax,%r10d
+  bf:	eb df                	jmp    a0 <astex_codelet__9+0xa0>
+  c1:	90                   	nop
+  c2:	90                   	nop
+  c3:	90                   	nop
+  c4:	90                   	nop
+  c5:	90                   	nop
+  c6:	90                   	nop
+  c7:	90                   	nop
+  c8:	90                   	nop
+  c9:	90                   	nop
+  ca:	90                   	nop
+  cb:	90                   	nop
+  cc:	90                   	nop
+  cd:	90                   	nop
+  ce:	90                   	nop
+  cf:	90                   	nop
+  d0:	45 89 d3             	mov    %r10d,%r11d
+  d3:	41 bf ff ff ff ff    	mov    $0xffffffff,%r15d
+  d9:	31 c0                	xor    %eax,%eax
+  db:	41 be 00 ca 9a 3b    	mov    $0x3b9aca00,%r14d
+  e1:	3d 00 01 00 00       	cmp    $0x100,%eax
+  e6:	7e 13                	jle    fb <astex_codelet__9+0xfb>
+  e8:	eb 36                	jmp    120 <astex_codelet__9+0x120>
+  ea:	90                   	nop
+  eb:	90                   	nop
+  ec:	90                   	nop
+  ed:	90                   	nop
+  ee:	90                   	nop
+  ef:	90                   	nop
+  f0:	48 83 c0 01          	add    $0x1,%rax
+  f4:	3d 00 01 00 00       	cmp    $0x100,%eax
+  f9:	7f 25                	jg     120 <astex_codelet__9+0x120>
+  fb:	48 8b 1c c7          	mov    (%rdi,%rax,8),%rbx
+  ff:	48 85 db             	test   %rbx,%rbx
+ 102:	74 ec                	je     f0 <astex_codelet__9+0xf0>
+ 104:	4c 39 f3             	cmp    %r14,%rbx
+ 107:	7f e7                	jg     f0 <astex_codelet__9+0xf0>
+ 109:	41 39 c3             	cmp    %eax,%r11d
+ 10c:	74 e2                	je     f0 <astex_codelet__9+0xf0>
+ 10e:	49 89 de             	mov    %rbx,%r14
+ 111:	41 89 c7             	mov    %eax,%r15d
+ 114:	eb da                	jmp    f0 <astex_codelet__9+0xf0>
+ 116:	90                   	nop
+ 117:	90                   	nop
+ 118:	90                   	nop
+ 119:	90                   	nop
+ 11a:	90                   	nop
+ 11b:	90                   	nop
+ 11c:	90                   	nop
+ 11d:	90                   	nop
+ 11e:	90                   	nop
+ 11f:	90                   	nop
+ 120:	45 85 ff             	test   %r15d,%r15d
+ 123:	0f 89 e7 fe ff ff    	jns    10 <astex_codelet__9+0x10>
+ 129:	44 89 11             	mov    %r10d,(%rcx)
+ 12c:	45 89 38             	mov    %r15d,(%r8)
+ 12f:	4d 89 31             	mov    %r14,(%r9)
+ 132:	5b                   	pop    %rbx
+ 133:	41 5e                	pop    %r14
+ 135:	41 5f                	pop    %r15
+ 137:	c3                   	retq   

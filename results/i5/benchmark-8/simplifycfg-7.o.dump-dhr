@@ -1,0 +1,205 @@
+
+benchmark-8/simplifycfg-7.o:     file format elf64-x86-64
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .text         0000023f  0000000000000000  0000000000000000  00000040  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .comment      000000b2  0000000000000000  0000000000000000  0000027f  2**0
+                  CONTENTS, READONLY
+  2 .note.GNU-stack 00000000  0000000000000000  0000000000000000  00000331  2**0
+                  CONTENTS, READONLY
+  3 .eh_frame     00000030  0000000000000000  0000000000000000  00000338  2**3
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+
+Disassembly of section .text:
+
+0000000000000000 <astex_codelet__9>:
+   0:	48 89 7c 24 c8       	mov    %rdi,-0x38(%rsp)
+   5:	48 89 74 24 e0       	mov    %rsi,-0x20(%rsp)
+   a:	48 89 54 24 d8       	mov    %rdx,-0x28(%rsp)
+   f:	48 89 4c 24 f8       	mov    %rcx,-0x8(%rsp)
+  14:	4c 89 44 24 f0       	mov    %r8,-0x10(%rsp)
+  19:	4c 89 4c 24 e8       	mov    %r9,-0x18(%rsp)
+  1e:	48 8b 44 24 e8       	mov    -0x18(%rsp),%rax
+  23:	48 8b 00             	mov    (%rax),%rax
+  26:	48 89 44 24 d0       	mov    %rax,-0x30(%rsp)
+  2b:	48 8b 44 24 f0       	mov    -0x10(%rsp),%rax
+  30:	8b 00                	mov    (%rax),%eax
+  32:	89 44 24 bc          	mov    %eax,-0x44(%rsp)
+  36:	48 8b 44 24 f8       	mov    -0x8(%rsp),%rax
+  3b:	8b 00                	mov    (%rax),%eax
+  3d:	89 44 24 c4          	mov    %eax,-0x3c(%rsp)
+  41:	e9 b9 00 00 00       	jmpq   ff <astex_codelet__9+0xff>
+  46:	90                   	nop
+  47:	90                   	nop
+  48:	90                   	nop
+  49:	90                   	nop
+  4a:	90                   	nop
+  4b:	90                   	nop
+  4c:	90                   	nop
+  4d:	90                   	nop
+  4e:	90                   	nop
+  4f:	90                   	nop
+  50:	48 8b 44 24 c8       	mov    -0x38(%rsp),%rax
+  55:	48 63 4c 24 bc       	movslq -0x44(%rsp),%rcx
+  5a:	48 8b 0c c8          	mov    (%rax,%rcx,8),%rcx
+  5e:	48 63 54 24 c4       	movslq -0x3c(%rsp),%rdx
+  63:	48 01 0c d0          	add    %rcx,(%rax,%rdx,8)
+  67:	48 8b 44 24 c8       	mov    -0x38(%rsp),%rax
+  6c:	48 63 4c 24 bc       	movslq -0x44(%rsp),%rcx
+  71:	48 c7 04 c8 00 00 00 	movq   $0x0,(%rax,%rcx,8)
+  78:	00 
+  79:	eb 16                	jmp    91 <astex_codelet__9+0x91>
+  7b:	90                   	nop
+  7c:	90                   	nop
+  7d:	90                   	nop
+  7e:	90                   	nop
+  7f:	90                   	nop
+  80:	48 8b 44 24 d8       	mov    -0x28(%rsp),%rax
+  85:	48 63 4c 24 c4       	movslq -0x3c(%rsp),%rcx
+  8a:	8b 04 88             	mov    (%rax,%rcx,4),%eax
+  8d:	89 44 24 c4          	mov    %eax,-0x3c(%rsp)
+  91:	48 8b 44 24 e0       	mov    -0x20(%rsp),%rax
+  96:	48 63 4c 24 c4       	movslq -0x3c(%rsp),%rcx
+  9b:	83 04 88 01          	addl   $0x1,(%rax,%rcx,4)
+  9f:	48 8b 44 24 d8       	mov    -0x28(%rsp),%rax
+  a4:	48 63 4c 24 c4       	movslq -0x3c(%rsp),%rcx
+  a9:	83 3c 88 00          	cmpl   $0x0,(%rax,%rcx,4)
+  ad:	79 d1                	jns    80 <astex_codelet__9+0x80>
+  af:	8b 44 24 bc          	mov    -0x44(%rsp),%eax
+  b3:	48 8b 4c 24 d8       	mov    -0x28(%rsp),%rcx
+  b8:	48 63 54 24 c4       	movslq -0x3c(%rsp),%rdx
+  bd:	89 04 91             	mov    %eax,(%rcx,%rdx,4)
+  c0:	eb 1f                	jmp    e1 <astex_codelet__9+0xe1>
+  c2:	90                   	nop
+  c3:	90                   	nop
+  c4:	90                   	nop
+  c5:	90                   	nop
+  c6:	90                   	nop
+  c7:	90                   	nop
+  c8:	90                   	nop
+  c9:	90                   	nop
+  ca:	90                   	nop
+  cb:	90                   	nop
+  cc:	90                   	nop
+  cd:	90                   	nop
+  ce:	90                   	nop
+  cf:	90                   	nop
+  d0:	48 8b 44 24 d8       	mov    -0x28(%rsp),%rax
+  d5:	48 63 4c 24 bc       	movslq -0x44(%rsp),%rcx
+  da:	8b 04 88             	mov    (%rax,%rcx,4),%eax
+  dd:	89 44 24 bc          	mov    %eax,-0x44(%rsp)
+  e1:	48 8b 44 24 e0       	mov    -0x20(%rsp),%rax
+  e6:	48 63 4c 24 bc       	movslq -0x44(%rsp),%rcx
+  eb:	83 04 88 01          	addl   $0x1,(%rax,%rcx,4)
+  ef:	48 8b 44 24 d8       	mov    -0x28(%rsp),%rax
+  f4:	48 63 4c 24 bc       	movslq -0x44(%rsp),%rcx
+  f9:	83 3c 88 00          	cmpl   $0x0,(%rax,%rcx,4)
+  fd:	79 d1                	jns    d0 <astex_codelet__9+0xd0>
+  ff:	c7 44 24 c4 ff ff ff 	movl   $0xffffffff,-0x3c(%rsp)
+ 106:	ff 
+ 107:	48 c7 44 24 d0 00 ca 	movq   $0x3b9aca00,-0x30(%rsp)
+ 10e:	9a 3b 
+ 110:	c7 44 24 c0 00 00 00 	movl   $0x0,-0x40(%rsp)
+ 117:	00 
+ 118:	81 7c 24 c0 00 01 00 	cmpl   $0x100,-0x40(%rsp)
+ 11f:	00 
+ 120:	7e 1d                	jle    13f <astex_codelet__9+0x13f>
+ 122:	eb 5c                	jmp    180 <astex_codelet__9+0x180>
+ 124:	90                   	nop
+ 125:	90                   	nop
+ 126:	90                   	nop
+ 127:	90                   	nop
+ 128:	90                   	nop
+ 129:	90                   	nop
+ 12a:	90                   	nop
+ 12b:	90                   	nop
+ 12c:	90                   	nop
+ 12d:	90                   	nop
+ 12e:	90                   	nop
+ 12f:	90                   	nop
+ 130:	83 44 24 c0 01       	addl   $0x1,-0x40(%rsp)
+ 135:	81 7c 24 c0 00 01 00 	cmpl   $0x100,-0x40(%rsp)
+ 13c:	00 
+ 13d:	7f 41                	jg     180 <astex_codelet__9+0x180>
+ 13f:	48 8b 44 24 c8       	mov    -0x38(%rsp),%rax
+ 144:	48 63 4c 24 c0       	movslq -0x40(%rsp),%rcx
+ 149:	48 83 3c c8 00       	cmpq   $0x0,(%rax,%rcx,8)
+ 14e:	74 e0                	je     130 <astex_codelet__9+0x130>
+ 150:	48 8b 44 24 c8       	mov    -0x38(%rsp),%rax
+ 155:	48 63 4c 24 c0       	movslq -0x40(%rsp),%rcx
+ 15a:	48 8b 04 c8          	mov    (%rax,%rcx,8),%rax
+ 15e:	48 3b 44 24 d0       	cmp    -0x30(%rsp),%rax
+ 163:	7f cb                	jg     130 <astex_codelet__9+0x130>
+ 165:	48 8b 44 24 c8       	mov    -0x38(%rsp),%rax
+ 16a:	48 63 4c 24 c0       	movslq -0x40(%rsp),%rcx
+ 16f:	48 8b 04 c8          	mov    (%rax,%rcx,8),%rax
+ 173:	48 89 44 24 d0       	mov    %rax,-0x30(%rsp)
+ 178:	89 4c 24 c4          	mov    %ecx,-0x3c(%rsp)
+ 17c:	eb b2                	jmp    130 <astex_codelet__9+0x130>
+ 17e:	90                   	nop
+ 17f:	90                   	nop
+ 180:	c7 44 24 bc ff ff ff 	movl   $0xffffffff,-0x44(%rsp)
+ 187:	ff 
+ 188:	48 c7 44 24 d0 00 ca 	movq   $0x3b9aca00,-0x30(%rsp)
+ 18f:	9a 3b 
+ 191:	c7 44 24 c0 00 00 00 	movl   $0x0,-0x40(%rsp)
+ 198:	00 
+ 199:	81 7c 24 c0 00 01 00 	cmpl   $0x100,-0x40(%rsp)
+ 1a0:	00 
+ 1a1:	7e 1c                	jle    1bf <astex_codelet__9+0x1bf>
+ 1a3:	eb 6b                	jmp    210 <astex_codelet__9+0x210>
+ 1a5:	90                   	nop
+ 1a6:	90                   	nop
+ 1a7:	90                   	nop
+ 1a8:	90                   	nop
+ 1a9:	90                   	nop
+ 1aa:	90                   	nop
+ 1ab:	90                   	nop
+ 1ac:	90                   	nop
+ 1ad:	90                   	nop
+ 1ae:	90                   	nop
+ 1af:	90                   	nop
+ 1b0:	83 44 24 c0 01       	addl   $0x1,-0x40(%rsp)
+ 1b5:	81 7c 24 c0 00 01 00 	cmpl   $0x100,-0x40(%rsp)
+ 1bc:	00 
+ 1bd:	7f 51                	jg     210 <astex_codelet__9+0x210>
+ 1bf:	48 8b 44 24 c8       	mov    -0x38(%rsp),%rax
+ 1c4:	48 63 4c 24 c0       	movslq -0x40(%rsp),%rcx
+ 1c9:	48 83 3c c8 00       	cmpq   $0x0,(%rax,%rcx,8)
+ 1ce:	74 e0                	je     1b0 <astex_codelet__9+0x1b0>
+ 1d0:	48 8b 44 24 c8       	mov    -0x38(%rsp),%rax
+ 1d5:	48 63 4c 24 c0       	movslq -0x40(%rsp),%rcx
+ 1da:	48 8b 04 c8          	mov    (%rax,%rcx,8),%rax
+ 1de:	48 3b 44 24 d0       	cmp    -0x30(%rsp),%rax
+ 1e3:	7f cb                	jg     1b0 <astex_codelet__9+0x1b0>
+ 1e5:	8b 44 24 c0          	mov    -0x40(%rsp),%eax
+ 1e9:	3b 44 24 c4          	cmp    -0x3c(%rsp),%eax
+ 1ed:	74 c1                	je     1b0 <astex_codelet__9+0x1b0>
+ 1ef:	48 8b 44 24 c8       	mov    -0x38(%rsp),%rax
+ 1f4:	48 63 4c 24 c0       	movslq -0x40(%rsp),%rcx
+ 1f9:	48 8b 04 c8          	mov    (%rax,%rcx,8),%rax
+ 1fd:	48 89 44 24 d0       	mov    %rax,-0x30(%rsp)
+ 202:	89 4c 24 bc          	mov    %ecx,-0x44(%rsp)
+ 206:	eb a8                	jmp    1b0 <astex_codelet__9+0x1b0>
+ 208:	90                   	nop
+ 209:	90                   	nop
+ 20a:	90                   	nop
+ 20b:	90                   	nop
+ 20c:	90                   	nop
+ 20d:	90                   	nop
+ 20e:	90                   	nop
+ 20f:	90                   	nop
+ 210:	83 7c 24 bc 00       	cmpl   $0x0,-0x44(%rsp)
+ 215:	0f 89 35 fe ff ff    	jns    50 <astex_codelet__9+0x50>
+ 21b:	8b 44 24 c4          	mov    -0x3c(%rsp),%eax
+ 21f:	48 8b 4c 24 f8       	mov    -0x8(%rsp),%rcx
+ 224:	89 01                	mov    %eax,(%rcx)
+ 226:	8b 44 24 bc          	mov    -0x44(%rsp),%eax
+ 22a:	48 8b 4c 24 f0       	mov    -0x10(%rsp),%rcx
+ 22f:	89 01                	mov    %eax,(%rcx)
+ 231:	48 8b 44 24 d0       	mov    -0x30(%rsp),%rax
+ 236:	48 8b 4c 24 e8       	mov    -0x18(%rsp),%rcx
+ 23b:	48 89 01             	mov    %rax,(%rcx)
+ 23e:	c3                   	retq   

@@ -1,5 +1,5 @@
 
-milepost-codelet-mibench-telecomm-gsm-src-short-term-codelet-2-1/optIRFiles/64short_term.codelet__2.o:     file format elf32-littlearm
+benchmark-42/standard-O3.o:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn

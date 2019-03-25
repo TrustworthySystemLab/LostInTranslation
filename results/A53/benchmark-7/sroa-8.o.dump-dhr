@@ -1,0 +1,54 @@
+
+benchmark-7/sroa-8.o:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000084  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .ARM.exidx    00000008  00000000  00000000  000000b8  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  2 .comment      0000002e  00000000  00000000  000000c0  2**0
+                  CONTENTS, READONLY
+  3 .note.GNU-stack 00000000  00000000  00000000  000000ee  2**0
+                  CONTENTS, READONLY
+  4 .ARM.attributes 0000003c  00000000  00000000  000000ee  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+00000000 <astex_codelet__13>:
+   0:	e92d48f0 	push	{r4, r5, r6, r7, fp, lr}
+   4:	e28db010 	add	fp, sp, #16
+   8:	e1a04002 	mov	r4, r2
+   c:	e1a05001 	mov	r5, r1
+  10:	e1a06000 	mov	r6, r0
+  14:	e3a07000 	mov	r7, #0
+  18:	e357003f 	cmp	r7, #63	; 0x3f
+  1c:	da000004 	ble	34 <astex_codelet__13+0x34>
+  20:	ea000016 	b	80 <astex_codelet__13+0x80>
+  24:	e0c600b2 	strh	r0, [r6], #2
+  28:	e2877001 	add	r7, r7, #1
+  2c:	e357003f 	cmp	r7, #63	; 0x3f
+  30:	ca000012 	bgt	80 <astex_codelet__13+0x80>
+  34:	e7940107 	ldr	r0, [r4, r7, lsl #2]
+  38:	e7951107 	ldr	r1, [r5, r7, lsl #2]
+  3c:	e3500000 	cmp	r0, #0
+  40:	ba000006 	blt	60 <astex_codelet__13+0x60>
+  44:	e08020c1 	add	r2, r0, r1, asr #1
+  48:	e3a00000 	mov	r0, #0
+  4c:	e1520001 	cmp	r2, r1
+  50:	bafffff3 	blt	24 <astex_codelet__13+0x24>
+  54:	e1a00002 	mov	r0, r2
+  58:	ebfffffe 	bl	0 <__aeabi_idiv>
+			58: R_ARM_CALL	__aeabi_idiv
+  5c:	eafffff0 	b	24 <astex_codelet__13+0x24>
+  60:	e06020c1 	rsb	r2, r0, r1, asr #1
+  64:	e3a00000 	mov	r0, #0
+  68:	e1520001 	cmp	r2, r1
+  6c:	ba000001 	blt	78 <astex_codelet__13+0x78>
+  70:	e1a00002 	mov	r0, r2
+  74:	ebfffffe 	bl	0 <__aeabi_idiv>
+			74: R_ARM_CALL	__aeabi_idiv
+  78:	e2600000 	rsb	r0, r0, #0
+  7c:	eaffffe8 	b	24 <astex_codelet__13+0x24>
+  80:	e8bd88f0 	pop	{r4, r5, r6, r7, fp, pc}

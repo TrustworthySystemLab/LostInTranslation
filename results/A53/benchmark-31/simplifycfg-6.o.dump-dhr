@@ -1,0 +1,79 @@
+
+benchmark-31/simplifycfg-6.o:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000f0  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .ARM.exidx    00000008  00000000  00000000  00000124  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  2 .comment      0000002e  00000000  00000000  0000012c  2**0
+                  CONTENTS, READONLY
+  3 .note.GNU-stack 00000000  00000000  00000000  0000015a  2**0
+                  CONTENTS, READONLY
+  4 .ARM.attributes 0000003c  00000000  00000000  0000015a  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+00000000 <astex_codelet__5>:
+   0:	e24dd028 	sub	sp, sp, #40	; 0x28
+   4:	e58d0024 	str	r0, [sp, #36]	; 0x24
+   8:	eef62b08 	vmov.f64	d18, #104	; 0x3f400000  0.750
+   c:	e59d0030 	ldr	r0, [sp, #48]	; 0x30
+  10:	e58d1020 	str	r1, [sp, #32]
+  14:	e58d3014 	str	r3, [sp, #20]
+  18:	ed8d0a07 	vstr	s0, [sp, #28]
+  1c:	e58d2018 	str	r2, [sp, #24]
+  20:	e5900000 	ldr	r0, [r0]
+  24:	e58d000c 	str	r0, [sp, #12]
+  28:	e59d002c 	ldr	r0, [sp, #44]	; 0x2c
+  2c:	e59d1014 	ldr	r1, [sp, #20]
+  30:	e5900000 	ldr	r0, [r0]
+  34:	e58d0008 	str	r0, [sp, #8]
+  38:	e1a01941 	asr	r1, r1, #18
+  3c:	e59d0018 	ldr	r0, [sp, #24]
+  40:	e5900000 	ldr	r0, [r0]
+  44:	e58d1010 	str	r1, [sp, #16]
+  48:	ed9d0a04 	vldr	s0, [sp, #16]
+  4c:	e58d0000 	str	r0, [sp]
+  50:	ed9d1a00 	vldr	s2, [sp]
+  54:	eef80bc0 	vcvt.f64.s32	d16, s0
+  58:	e59d0020 	ldr	r0, [sp, #32]
+  5c:	e59d1024 	ldr	r1, [sp, #36]	; 0x24
+  60:	e1510000 	cmp	r1, r0
+  64:	eef71ac1 	vcvt.f64.f32	d17, s2
+  68:	ee410ba2 	vmla.f64	d16, d17, d18
+  6c:	eeb70be0 	vcvt.f32.f64	s0, d16
+  70:	ed8d0a01 	vstr	s0, [sp, #4]
+  74:	e59d2004 	ldr	r2, [sp, #4]
+  78:	e58d2000 	str	r2, [sp]
+  7c:	da000005 	ble	98 <astex_codelet__5+0x98>
+  80:	ed9d0a01 	vldr	s0, [sp, #4]
+  84:	eef61b00 	vmov.f64	d17, #96	; 0x3f000000  0.5
+  88:	eef70ac0 	vcvt.f64.f32	d16, s0
+  8c:	ee600ba1 	vmul.f64	d16, d16, d17
+  90:	eeb70be0 	vcvt.f32.f64	s0, d16
+  94:	ed8d0a01 	vstr	s0, [sp, #4]
+  98:	ed9d0a01 	vldr	s0, [sp, #4]
+  9c:	ed9d1a07 	vldr	s2, [sp, #28]
+  a0:	e59d0018 	ldr	r0, [sp, #24]
+  a4:	ee210a00 	vmul.f32	s0, s2, s0
+  a8:	ed9d1a00 	vldr	s2, [sp]
+  ac:	ed8d0a03 	vstr	s0, [sp, #12]
+  b0:	ed8d0a02 	vstr	s0, [sp, #8]
+  b4:	ed801a00 	vstr	s2, [r0]
+  b8:	e59d0028 	ldr	r0, [sp, #40]	; 0x28
+  bc:	ed9d0a01 	vldr	s0, [sp, #4]
+  c0:	ed800a00 	vstr	s0, [r0]
+  c4:	e59d002c 	ldr	r0, [sp, #44]	; 0x2c
+  c8:	ed9d0a02 	vldr	s0, [sp, #8]
+  cc:	ed800a00 	vstr	s0, [r0]
+  d0:	e59d0030 	ldr	r0, [sp, #48]	; 0x30
+  d4:	ed9d0a03 	vldr	s0, [sp, #12]
+  d8:	ed800a00 	vstr	s0, [r0]
+  dc:	e59d0034 	ldr	r0, [sp, #52]	; 0x34
+  e0:	e59d1010 	ldr	r1, [sp, #16]
+  e4:	e5801000 	str	r1, [r0]
+  e8:	e28dd028 	add	sp, sp, #40	; 0x28
+  ec:	e12fff1e 	bx	lr

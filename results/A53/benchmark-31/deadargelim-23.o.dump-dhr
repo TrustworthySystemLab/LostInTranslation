@@ -1,0 +1,47 @@
+
+benchmark-31/deadargelim-23.o:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000070  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .ARM.exidx    00000008  00000000  00000000  000000a4  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  2 .comment      0000002e  00000000  00000000  000000ac  2**0
+                  CONTENTS, READONLY
+  3 .note.GNU-stack 00000000  00000000  00000000  000000da  2**0
+                  CONTENTS, READONLY
+  4 .ARM.attributes 0000003c  00000000  00000000  000000da  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+00000000 <astex_codelet__5>:
+   0:	e92d4830 	push	{r4, r5, fp, lr}
+   4:	e28db008 	add	fp, sp, #8
+   8:	e1a03943 	asr	r3, r3, #18
+   c:	ed921a00 	vldr	s2, [r2]
+  10:	ee023a10 	vmov	s4, r3
+  14:	e59bc014 	ldr	ip, [fp, #20]
+  18:	eef71ac1 	vcvt.f64.f32	d17, s2
+  1c:	e59be010 	ldr	lr, [fp, #16]
+  20:	e59b400c 	ldr	r4, [fp, #12]
+  24:	e1500001 	cmp	r0, r1
+  28:	e59b5008 	ldr	r5, [fp, #8]
+  2c:	eef80bc2 	vcvt.f64.s32	d16, s4
+  30:	eef62b08 	vmov.f64	d18, #104	; 0x3f400000  0.750
+  34:	ee410ba2 	vmla.f64	d16, d17, d18
+  38:	eeb71be0 	vcvt.f32.f64	s2, d16
+  3c:	eeb02a41 	vmov.f32	s4, s2
+  40:	da000003 	ble	54 <astex_codelet__5+0x54>
+  44:	eef70ac1 	vcvt.f64.f32	d16, s2
+  48:	eef61b00 	vmov.f64	d17, #96	; 0x3f000000  0.5
+  4c:	ee600ba1 	vmul.f64	d16, d16, d17
+  50:	eeb72be0 	vcvt.f32.f64	s4, d16
+  54:	ee200a02 	vmul.f32	s0, s0, s4
+  58:	ed821a00 	vstr	s2, [r2]
+  5c:	ed852a00 	vstr	s4, [r5]
+  60:	ed840a00 	vstr	s0, [r4]
+  64:	ed8e0a00 	vstr	s0, [lr]
+  68:	e58c3000 	str	r3, [ip]
+  6c:	e8bd8830 	pop	{r4, r5, fp, pc}
