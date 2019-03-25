@@ -1,0 +1,161 @@
+; ModuleID = '/home/kg8280/CK/ctuning-programs/program/milepost-codelet-mibench-consumer-jpeg-c-src-jchuff-codelet-9-1/jchuff.codelet__9.bc'
+source_filename = "/home/kg8280/CK/ctuning-programs/program/milepost-codelet-mibench-consumer-jpeg-c-src-jchuff-codelet-9-1/jchuff.codelet__9.c"
+target datalayout = "e-m:e-i64:64-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+; Function Attrs: nounwind uwtable
+define dso_local void @astex_codelet__9(i64* %freq, i32* %codesize, i32* %others, i32* %__astex_addr__c1, i32* %__astex_addr__c2, i64* %__astex_addr__v) #0 {
+entry:
+  br label %for.cond
+
+for.cond:                                         ; preds = %while.cond54, %entry
+  br label %for.cond3
+
+for.cond3:                                        ; preds = %for.inc, %for.cond
+  %v.0 = phi i64 [ 1000000000, %for.cond ], [ %v.1, %for.inc ]
+  %i.0 = phi i32 [ 0, %for.cond ], [ %inc, %for.inc ]
+  %c1.0 = phi i32 [ -1, %for.cond ], [ %c1.1, %for.inc ]
+  %cmp = icmp sle i32 %i.0, 256
+  br i1 %cmp, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond3
+  %idxprom = sext i32 %i.0 to i64
+  %arrayidx4 = getelementptr inbounds i64, i64* %freq, i64 %idxprom
+  %0 = load i64, i64* %arrayidx4, align 8, !tbaa !2
+  %tobool = icmp ne i64 %0, 0
+  br i1 %tobool, label %land.lhs.true, label %for.inc
+
+land.lhs.true:                                    ; preds = %for.body
+  %cmp7 = icmp sle i64 %0, %v.0
+  br i1 %cmp7, label %if.then, label %for.inc
+
+if.then:                                          ; preds = %land.lhs.true
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then
+  %v.1 = phi i64 [ %0, %if.then ], [ %v.0, %land.lhs.true ], [ %v.0, %for.body ]
+  %c1.1 = phi i32 [ %i.0, %if.then ], [ %c1.0, %land.lhs.true ], [ %c1.0, %for.body ]
+  %inc = add nsw i32 %i.0, 1
+  br label %for.cond3
+
+for.end:                                          ; preds = %for.cond3
+  br label %for.cond10
+
+for.cond10:                                       ; preds = %for.inc26, %for.end
+  %v.2 = phi i64 [ 1000000000, %for.end ], [ %v.3, %for.inc26 ]
+  %i.1 = phi i32 [ 0, %for.end ], [ %inc27, %for.inc26 ]
+  %c2.0 = phi i32 [ -1, %for.end ], [ %c2.1, %for.inc26 ]
+  %cmp11 = icmp sle i32 %i.1, 256
+  br i1 %cmp11, label %for.body12, label %for.end28
+
+for.body12:                                       ; preds = %for.cond10
+  %idxprom13 = sext i32 %i.1 to i64
+  %arrayidx14 = getelementptr inbounds i64, i64* %freq, i64 %idxprom13
+  %1 = load i64, i64* %arrayidx14, align 8, !tbaa !2
+  %tobool15 = icmp ne i64 %1, 0
+  br i1 %tobool15, label %land.lhs.true16, label %for.inc26
+
+land.lhs.true16:                                  ; preds = %for.body12
+  %cmp19 = icmp sle i64 %1, %v.2
+  br i1 %cmp19, label %land.lhs.true20, label %for.inc26
+
+land.lhs.true20:                                  ; preds = %land.lhs.true16
+  %cmp21 = icmp ne i32 %i.1, %c1.0
+  br i1 %cmp21, label %if.then22, label %for.inc26
+
+if.then22:                                        ; preds = %land.lhs.true20
+  br label %for.inc26
+
+for.inc26:                                        ; preds = %for.body12, %land.lhs.true16, %land.lhs.true20, %if.then22
+  %v.3 = phi i64 [ %1, %if.then22 ], [ %v.2, %land.lhs.true20 ], [ %v.2, %land.lhs.true16 ], [ %v.2, %for.body12 ]
+  %c2.1 = phi i32 [ %i.1, %if.then22 ], [ %c2.0, %land.lhs.true20 ], [ %c2.0, %land.lhs.true16 ], [ %c2.0, %for.body12 ]
+  %inc27 = add nsw i32 %i.1, 1
+  br label %for.cond10
+
+for.end28:                                        ; preds = %for.cond10
+  %cmp29 = icmp slt i32 %c2.0, 0
+  br i1 %cmp29, label %astex_thread_end, label %if.end31
+
+if.end31:                                         ; preds = %for.end28
+  %idxprom32 = sext i32 %c2.0 to i64
+  %arrayidx33 = getelementptr inbounds i64, i64* %freq, i64 %idxprom32
+  %2 = load i64, i64* %arrayidx33, align 8, !tbaa !2
+  %idxprom34 = sext i32 %c1.0 to i64
+  %arrayidx35 = getelementptr inbounds i64, i64* %freq, i64 %idxprom34
+  %3 = load i64, i64* %arrayidx35, align 8, !tbaa !2
+  %add = add nsw i64 %3, %2
+  store i64 %add, i64* %arrayidx35, align 8, !tbaa !2
+  store i64 0, i64* %arrayidx33, align 8, !tbaa !2
+  %arrayidx39 = getelementptr inbounds i32, i32* %codesize, i64 %idxprom34
+  %4 = load i32, i32* %arrayidx39, align 4, !tbaa !6
+  %inc40 = add nsw i32 %4, 1
+  store i32 %inc40, i32* %arrayidx39, align 4, !tbaa !6
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %if.end31
+  %c1.2 = phi i32 [ %c1.0, %if.end31 ], [ %5, %while.body ]
+  %idxprom41 = sext i32 %c1.2 to i64
+  %arrayidx42 = getelementptr inbounds i32, i32* %others, i64 %idxprom41
+  %5 = load i32, i32* %arrayidx42, align 4, !tbaa !6
+  %cmp43 = icmp sge i32 %5, 0
+  br i1 %cmp43, label %while.body, label %while.end
+
+while.body:                                       ; preds = %while.cond
+  %idxprom46 = sext i32 %5 to i64
+  %arrayidx47 = getelementptr inbounds i32, i32* %codesize, i64 %idxprom46
+  %6 = load i32, i32* %arrayidx47, align 4, !tbaa !6
+  %inc48 = add nsw i32 %6, 1
+  store i32 %inc48, i32* %arrayidx47, align 4, !tbaa !6
+  br label %while.cond
+
+while.end:                                        ; preds = %while.cond
+  store i32 %c2.0, i32* %arrayidx42, align 4, !tbaa !6
+  %arrayidx52 = getelementptr inbounds i32, i32* %codesize, i64 %idxprom32
+  %7 = load i32, i32* %arrayidx52, align 4, !tbaa !6
+  %inc53 = add nsw i32 %7, 1
+  store i32 %inc53, i32* %arrayidx52, align 4, !tbaa !6
+  br label %while.cond54
+
+while.cond54:                                     ; preds = %while.body58, %while.end
+  %c2.2 = phi i32 [ %c2.0, %while.end ], [ %8, %while.body58 ]
+  %idxprom55 = sext i32 %c2.2 to i64
+  %arrayidx56 = getelementptr inbounds i32, i32* %others, i64 %idxprom55
+  %8 = load i32, i32* %arrayidx56, align 4, !tbaa !6
+  %cmp57 = icmp sge i32 %8, 0
+  br i1 %cmp57, label %while.body58, label %for.cond
+
+while.body58:                                     ; preds = %while.cond54
+  %idxprom61 = sext i32 %8 to i64
+  %arrayidx62 = getelementptr inbounds i32, i32* %codesize, i64 %idxprom61
+  %9 = load i32, i32* %arrayidx62, align 4, !tbaa !6
+  %inc63 = add nsw i32 %9, 1
+  store i32 %inc63, i32* %arrayidx62, align 4, !tbaa !6
+  br label %while.cond54
+
+astex_thread_end:                                 ; preds = %for.end28
+  store i32 %c1.0, i32* %__astex_addr__c1, align 4, !tbaa !6
+  store i32 %c2.0, i32* %__astex_addr__c2, align 4, !tbaa !6
+  store i64 %v.2, i64* %__astex_addr__v, align 8, !tbaa !2
+  ret void
+}
+
+; Function Attrs: argmemonly nounwind
+declare void @llvm.lifetime.start.p0i8(i64, i8* nocapture) #1
+
+; Function Attrs: argmemonly nounwind
+declare void @llvm.lifetime.end.p0i8(i64, i8* nocapture) #1
+
+attributes #0 = { nounwind uwtable "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "less-precise-fpmad"="false" "no-frame-pointer-elim"="false" "no-infs-fp-math"="false" "no-jump-tables"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="false" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
+attributes #1 = { argmemonly nounwind }
+
+!llvm.module.flags = !{!0}
+!llvm.ident = !{!1}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{!"clang version 7.0.0 (https://git.llvm.org/git/clang.git/ a9de5f6b28931eab59bca3c566e135195cb291ce) (https://git.llvm.org/git/llvm.git/ f4f1f0748852256ead76df514a88d4dcf97f40bc)"}
+!2 = !{!3, !3, i64 0}
+!3 = !{!"long", !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"int", !4, i64 0}

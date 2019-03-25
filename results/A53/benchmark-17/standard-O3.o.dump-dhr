@@ -1,0 +1,42 @@
+
+milepost-codelet-mibench-consumer-lame-src-takehiro-codelet-5-1/optIRFiles/64takehiro.codelet__5.o:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000005c  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .ARM.exidx    00000008  00000000  00000000  00000090  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  2 .comment      0000002e  00000000  00000000  00000098  2**0
+                  CONTENTS, READONLY
+  3 .note.GNU-stack 00000000  00000000  00000000  000000c6  2**0
+                  CONTENTS, READONLY
+  4 .ARM.attributes 0000003c  00000000  00000000  000000c6  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+00000000 <astex_codelet__5>:
+   0:	e92d4c10 	push	{r4, sl, fp, lr}
+   4:	e28db008 	add	fp, sp, #8
+   8:	e3a0c000 	mov	ip, #0
+   c:	e300e23f 	movw	lr, #575	; 0x23f
+  10:	edd00b00 	vldr	d16, [r0]
+  14:	eef40bc0 	vcmpe.f64	d16, d0
+  18:	eef1fa10 	vmrs	APSR_nzcv, fpscr
+  1c:	ca000007 	bgt	40 <astex_codelet__5+0x40>
+  20:	e28c4001 	add	r4, ip, #1
+  24:	e2800008 	add	r0, r0, #8
+  28:	e15c000e 	cmp	ip, lr
+  2c:	e1a0c004 	mov	ip, r4
+  30:	3afffff6 	bcc	10 <astex_codelet__5+0x10>
+  34:	e3a00000 	mov	r0, #0
+  38:	e1a0c004 	mov	ip, r4
+  3c:	ea000000 	b	44 <astex_codelet__5+0x44>
+  40:	e3a00001 	mov	r0, #1
+  44:	e581c000 	str	ip, [r1]
+  48:	e30816a0 	movw	r1, #34464	; 0x86a0
+  4c:	e3401001 	movt	r1, #1
+  50:	e5821000 	str	r1, [r2]
+  54:	e5830000 	str	r0, [r3]
+  58:	e8bd8c10 	pop	{r4, sl, fp, pc}

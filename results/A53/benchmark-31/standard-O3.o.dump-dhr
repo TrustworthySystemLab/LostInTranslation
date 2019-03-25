@@ -1,0 +1,43 @@
+
+milepost-codelet-mibench-office-rsynth-src-nsynth-codelet-5-1/optIRFiles/64nsynth.codelet__5.o:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000060  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .ARM.exidx    00000008  00000000  00000000  00000094  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  2 .comment      0000002e  00000000  00000000  0000009c  2**0
+                  CONTENTS, READONLY
+  3 .note.GNU-stack 00000000  00000000  00000000  000000ca  2**0
+                  CONTENTS, READONLY
+  4 .ARM.attributes 0000003c  00000000  00000000  000000ca  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+00000000 <astex_codelet__5>:
+   0:	e92d4800 	push	{fp, lr}
+   4:	e1a0b00d 	mov	fp, sp
+   8:	e1a03943 	asr	r3, r3, #18
+   c:	ed921a00 	vldr	s2, [r2]
+  10:	ee023a10 	vmov	s4, r3
+  14:	e1500001 	cmp	r0, r1
+  18:	eef71ac1 	vcvt.f64.f32	d17, s2
+  1c:	e28be008 	add	lr, fp, #8
+  20:	eef80bc2 	vcvt.f64.s32	d16, s4
+  24:	e89e5003 	ldm	lr, {r0, r1, ip, lr}
+  28:	eef62b08 	vmov.f64	d18, #104	; 0x3f400000  0.750
+  2c:	ee410ba2 	vmla.f64	d16, d17, d18
+  30:	eeb61a00 	vmov.f32	s2, #96	; 0x3f000000  0.5
+  34:	eeb72be0 	vcvt.f32.f64	s4, d16
+  38:	ee221a01 	vmul.f32	s2, s4, s2
+  3c:	ed822a00 	vstr	s4, [r2]
+  40:	eeb03a42 	vmov.f32	s6, s4
+  44:	ceb03a41 	vmovgt.f32	s6, s2
+  48:	ee230a00 	vmul.f32	s0, s6, s0
+  4c:	ed803a00 	vstr	s6, [r0]
+  50:	ed810a00 	vstr	s0, [r1]
+  54:	ed8c0a00 	vstr	s0, [ip]
+  58:	e58e3000 	str	r3, [lr]
+  5c:	e8bd8800 	pop	{fp, pc}
