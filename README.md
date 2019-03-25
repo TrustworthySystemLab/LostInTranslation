@@ -1,8 +1,8 @@
-"Lost in translation" companion code samples
+*"Lost in translation"* companion code samples
 ===================
 
 This repository contains code examples accompanying the paper
-"Lost in translation: Exposing hidden compiler optimization opportunities".
+*"Lost in translation: Exposing hidden compiler optimization opportunities"*.
 
 The files are organized according to the architecture and the MiBench benchmark discussed in the paper:
 
