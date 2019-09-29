@@ -1,0 +1,63 @@
+diff --git a/llvm/include/llvm/Transforms/Utils/Local.h b/llvm/include/llvm/Transforms/Utils/Local.h
+index 01db88bc15c..d79ce877ed6 100644
+--- a/llvm/include/llvm/Transforms/Utils/Local.h
++++ b/llvm/include/llvm/Transforms/Utils/Local.h
+@@ -207,7 +207,8 @@ bool FlattenCFG(BasicBlock *BB, AliasAnalysis *AA = nullptr);
+ /// If this basic block is ONLY a setcc and a branch, and if a predecessor
+ /// branches to us and one of our successors, fold the setcc into the
+ /// predecessor and use logical operations to pick the right destination.
+-bool FoldBranchToCommonDest(BranchInst *BI, unsigned BonusInstThreshold = 1);
++bool FoldBranchToCommonDest(BranchInst *BI, unsigned BonusInstThreshold = 1,
++                            SmallPtrSetImpl<BasicBlock *> *LoopHeaders = nullptr);
+ 
+ /// This function takes a virtual register computed by an Instruction and
+ /// replaces it with a slot in the stack frame, allocated via alloca.
+diff --git a/llvm/lib/Transforms/Utils/SimplifyCFG.cpp b/llvm/lib/Transforms/Utils/SimplifyCFG.cpp
+index 7c195788e41..393c500b9ef 100644
+--- a/llvm/lib/Transforms/Utils/SimplifyCFG.cpp
++++ b/llvm/lib/Transforms/Utils/SimplifyCFG.cpp
+@@ -2527,7 +2527,7 @@ static bool extractPredSuccWeights(BranchInst *PBI, BranchInst *BI,
+ /// If this basic block is simple enough, and if a predecessor branches to us
+ /// and one of our successors, fold the block into the predecessor and use
+ /// logical operations to pick the right destination.
+-bool llvm::FoldBranchToCommonDest(BranchInst *BI, unsigned BonusInstThreshold) {
++bool llvm::FoldBranchToCommonDest(BranchInst *BI, unsigned BonusInstThreshold, SmallPtrSetImpl<BasicBlock *> *LoopHeaders) {
+   BasicBlock *BB = BI->getParent();
+ 
+   Instruction *Cond = nullptr;
+@@ -2613,6 +2613,17 @@ bool llvm::FoldBranchToCommonDest(BranchInst *BI, unsigned BonusInstThreshold) {
+   if (TrueDest == BB || FalseDest == BB)
+     return false;
+ 
++  // Do not transform conditionals where either destination is a loop latch
++  // (predecessor #0 of a loop header, if the predecessors are known / exist.)
++  if (LoopHeaders && LoopHeaders->size() > 0)
++    for (auto LHI = LoopHeaders->begin(); LHI != LoopHeaders->end(); ++LHI) {
++      BasicBlock *HdrBB = *LHI;
++      if (!pred_empty(HdrBB))
++        if (*pred_begin(HdrBB) == TrueDest
++            || *pred_begin(HdrBB) == FalseDest)
++          return false;
++    }
++
+   for (pred_iterator PI = pred_begin(BB), E = pred_end(BB); PI != E; ++PI) {
+     BasicBlock *PredBlock = *PI;
+     BranchInst *PBI = dyn_cast<BranchInst>(PredBlock->getTerminator());
+@@ -5753,7 +5764,7 @@ bool SimplifyCFGOpt::SimplifyUncondBranch(BranchInst *BI,
+   // branches to us and our successor, fold the comparison into the
+   // predecessor and use logical operations to update the incoming value
+   // for PHI nodes in common successor.
+-  if (FoldBranchToCommonDest(BI, Options.BonusInstThreshold))
++  if (FoldBranchToCommonDest(BI, Options.BonusInstThreshold, LoopHeaders))
+     return simplifyCFG(BB, TTI, Options) | true;
+   return false;
+ }
+@@ -5831,7 +5842,7 @@ bool SimplifyCFGOpt::SimplifyCondBranch(BranchInst *BI, IRBuilder<> &Builder) {
+   // If this basic block is ONLY a compare and a branch, and if a predecessor
+   // branches to us and one of our successors, fold the comparison into the
+   // predecessor and use logical operations to pick the right destination.
+-  if (FoldBranchToCommonDest(BI, Options.BonusInstThreshold))
++  if (FoldBranchToCommonDest(BI, Options.BonusInstThreshold, LoopHeaders))
+     return simplifyCFG(BB, TTI, Options) | true;
+ 
+   // We have a conditional branch to two blocks that are only reachable
